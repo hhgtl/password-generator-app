@@ -1,24 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import s from './App.module.scss';
+import { CheckBoxBtn } from './component/CheckBoxBtn/CheckBoxBtn';
+import { PasswordWindow } from './component/PasswordWindow/PasswordWindow';
+import { SliderBtn } from './component/SliderBtn/SliderBtn';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={s.App}>
+      <div className={s.inputWrapper}>
+        <div className={`${s.reliability_text} ${s.green}`}>Надежный</div>
+        <PasswordWindow />
+      </div>
+      <div className={s.password_generation_panel}>
+        <span>Длина пароля</span>
+        <input className={s.password_input_number} type="number" />
+        <SliderBtn />
+      </div>
+      <div className={s.CheckBoxBtn_container}>
+        <CheckBoxBtn title="Верхний регистр" />
+        <CheckBoxBtn title="Нижний регистр" />
+        <CheckBoxBtn title="Цифры" />
+        <CheckBoxBtn title="Символы" />
+      </div>
     </div>
   );
 }
